@@ -1,0 +1,35 @@
+version: '3.7'
+services:
+  consul-server:
+    image: consul
+    container_name: consul-server
+    ports:
+      - "0.0.0.0:8500:8500"
+    networks:
+      - demo
+  localstack:
+    image: localstack/localstack:0.12.7
+    container_name: localstack
+    ports:
+      - "0.0.0.0:4566:4566"
+    environment:
+      - SERVICES=sqs
+    networks:
+      - demo
+
+  mariadb:
+    image: mariadb:10.7
+    container_name: mariadb
+    ports:
+      - '0.0.0.0:53307:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: demo
+      MYSQL_DATABASE: demo
+      MYSQL_PASSWORD: demo
+      MYSQL_USER: demo
+    networks:
+      - demo
+
+networks:
+  demo:
+    driver: bridge

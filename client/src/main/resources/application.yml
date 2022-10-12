@@ -1,0 +1,33 @@
+micronaut:
+  application:
+    name: client
+
+  users-api:
+    key: 4d206816-6f48-4bc1-a437-bb5ddd6dc95f
+
+  http:
+    services:
+      api:
+        event-loop-group: api-client
+        read-timeout: 30s
+
+  netty:
+    event-loops:
+      api-client:
+        executor: io
+        num-threads: 1
+
+aws:
+  sqs:
+    endpoint: http://localhost:4566
+
+netty:
+  default:
+    allocator:
+      max-order: 3
+
+consul:
+  client:
+    registration:
+      enabled: true
+    default-zone: ${CONSUL_HOST:localhost}:${CONSUL_PORT:8500}
