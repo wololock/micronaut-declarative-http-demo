@@ -1,5 +1,6 @@
 package api.user;
 
+import io.micronaut.context.annotation.Value;
 import io.micronaut.core.annotation.Introspected;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.annotation.Body;
@@ -9,6 +10,7 @@ import io.micronaut.http.annotation.Error;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.Post;
 import io.micronaut.http.hateoas.JsonError;
+import io.micronaut.runtime.server.EmbeddedServer;
 import io.micronaut.scheduling.TaskExecutors;
 import io.micronaut.scheduling.annotation.ExecuteOn;
 import io.micronaut.security.annotation.Secured;
@@ -26,14 +28,16 @@ import java.util.UUID;
 class UsersController {
 
     private final UserRepository userRepository;
+    private final String serverHost;
 
-    public UsersController(UserRepository userRepository) {
+    public UsersController(UserRepository userRepository, EmbeddedServer embeddedServer) {
         this.userRepository = userRepository;
+        this.serverHost = embeddedServer.getHost() + ":" + embeddedServer.getPort();
     }
 
     @Get
-    Iterable<User> users() {
-        return userRepository.findAll();
+    HttpResponse<Iterable<User>> users() {
+        return HttpResponse.ok(userRepository.findAll()).header("Target-Host", serverHost);
     }
 
     @Get("/{uuid}")
