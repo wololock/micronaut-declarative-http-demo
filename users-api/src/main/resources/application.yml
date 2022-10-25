@@ -3,7 +3,7 @@ micronaut:
     port: 35123
 
   application:
-    name: api
+    name: users-api
 
   security:
     enabled: true

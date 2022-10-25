@@ -8,8 +8,8 @@ import java.util.Collections;
 import java.util.List;
 
 @RestController
-@RequestMapping("/demo/users")
-final class DemoController {
+@RequestMapping("/bonus/users")
+final class BonusController {
 
     @GetMapping
     List<?> list() {
