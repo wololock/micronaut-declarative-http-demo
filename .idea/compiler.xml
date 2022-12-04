@@ -125,6 +125,9 @@
       <module name="client" target="17" />
       <module name="client.main" target="17" />
       <module name="client.test" target="17" />
+      <module name="demo" target="17" />
+      <module name="demo.main" target="17" />
+      <module name="demo.test" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>
