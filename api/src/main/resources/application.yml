@@ -37,7 +37,7 @@ swagger-ui:
 
 datasources:
   default:
-    url: jdbc:mysql://localhost:53307/demo?useUnicode=yes&characterEncoding=UTF-8
+    url: jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:53307}/demo?useUnicode=yes&characterEncoding=UTF-8
     username: demo
     password: demo
     driverClassName: org.mariadb.jdbc.Driver
