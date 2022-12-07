@@ -1,0 +1,41 @@
+micronaut:
+  application:
+    name: demo
+  http:
+    services:
+      users-api:
+        connect-timeout: 30s
+        follow-redirects: true
+        read-timeout: 40s
+        event-loop-group: users-api
+
+  netty:
+    event-loops:
+      default:
+        num-threads: 1
+      users-api:
+        executor: io
+        num-threads: 1
+      consul:
+        executor: io
+        num-threads: 1
+
+netty:
+  default:
+    allocator:
+      max-order: 3
+
+aws:
+  sqs:
+    endpoint: http://localhost:4566
+
+users:
+  api:
+    key: 4d206816-6f48-4bc1-a437-bb5ddd6dc95f
+
+consul:
+  client:
+    discovery:
+      enabled: true
+    default-zone: ${CONSUL_HOST:localhost}:${CONSUL_PORT:8500}
+    event-loop-group: consul
