@@ -5,11 +5,11 @@
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/bonus" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/demo" />
         <option name="gradleJvm" value="graalvm-17" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$/bonus" />
+            <option value="$PROJECT_DIR$/demo" />
           </set>
         </option>
       </GradleProjectSettings>
