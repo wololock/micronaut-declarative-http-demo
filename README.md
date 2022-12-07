@@ -40,3 +40,7 @@ http POST localhost:8080/client/users name="Foo" email="bar@example.com"
 * https://docs.micronaut.io/latest/guide/
 * https://guides.micronaut.io/latest/index.html
 * https://micronaut.io/launch
+
+## Slides
+
+https://speakerdeck.com/wololock/micronaut-framework-and-the-declarative-http-client
